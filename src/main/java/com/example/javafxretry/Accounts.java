@@ -21,52 +21,15 @@ public class Accounts {
 
     Accounts(String Username_Entered, String Password_Entered, String Role_Entered, String Name_Entered, String Address_Entered, int Phone_Number_Entered){
 
-        //Add SQL injection validation
-        boolean SQL_Injection = false;
+        Set_Username(Username_Entered);
+        Set_Password(Password_Entered);
+        Set_Role(Role_Entered);
+        Set_Account_ID();
+        Set_Name(Name_Entered);
+        Set_Address(Address_Entered);
+        Set_Phone_Number(Phone_Number_Entered);
+        Store_Account();
 
-        // Username
-        String Temp_Username = Username_Entered.toUpperCase();
-        if (Temp_Username.contains("INSERT") || Temp_Username.contains("SELECT")){
-            SQL_Injection = true;
-        }
-
-        // Password
-        String Temp_Password = Password_Entered.toUpperCase();
-        if (Temp_Password.contains("INSERT") || Temp_Password.contains("SELECT")){
-            SQL_Injection = true;
-        }
-
-        // Role
-        String Temp_Role = Password_Entered.toUpperCase();
-        if (Temp_Role.contains("INSERT") || Temp_Role.contains("SELECT")){
-            SQL_Injection = true;
-        }
-
-        // Name
-        String Temp_Name = Password_Entered.toUpperCase();
-        if (Temp_Name.contains("INSERT") || Temp_Name.contains("SELECT")){
-            SQL_Injection = true;
-        }
-
-        // Address
-        String Temp_Address = Password_Entered.toUpperCase();
-        if (Temp_Address.contains("INSERT") || Temp_Address.contains("SELECT")){
-            SQL_Injection = true;
-        }
-
-        if (!SQL_Injection){
-            Set_Username(Username_Entered);
-            Set_Password(Password_Entered);
-            Set_Role(Role_Entered);
-            Set_Account_ID();
-            Set_Name(Name_Entered);
-            Set_Address(Address_Entered);
-            Set_Phone_Number(Phone_Number_Entered);
-            Store_Account();
-        }
-        else{
-            String Message = "SQL Injection detected. Fuck off";
-        }
     }
 
 
